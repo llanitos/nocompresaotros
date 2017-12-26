@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Tarea 3 - Llanos Nuñez</title>
+    <link type="text/css" href="estilo.css" rel="stylesheet" />
+    <script type="text/javascript" src="clases.js"></script>
+    <script type="text/javascript" src="dni.js"></script>
+</head>
+
+
+<body>
+    
+
+    <div class="center">
+    <h1>Mejor No Compres... a los demás!</h1>
+    <p> <strong>Listado de clientes: </strong> </br>
+
+    <script type="text/javascript">
+        //Definimos un array con datos de los compradores
+        var datosComprador=[
+            {"nombre":"Antonio","apellido1":"Garcia" ,"apellido2":"Perez","direccion":"C/Antonio Perez,2", "nif": "46938399E"},
+            {"nombre":"Manuela","apellido1":"Torbellino" ,"apellido2":"Tornavega","direccion":"C/Manuela Malasaña,2", "nif": "46938399E"},
+            {"nombre":"Rosa Maria","apellido1":"Sarda" ,"apellido2":"Sarda","direccion":"C/La luna,2", "nif": "46938399E"}
+        ];
+
+        // Creamos ahora un array de objetos iteraremos e iremos añadiendo objetos en un for loop
+        var compradores = new Array();
+
+        // For loop para validar el dni y si esta bien creamos el objeto y lo metemos en el array compradores
+        for (var i=0; i< datosComprador.length; i++) {
+            var nif = datosComprador[i].nif;
+            if (validarDNI(nif) == true) {
+                compradores[i] = new Comprador(datosComprador[i].nombre, datosComprador[i].apellido1, datosComprador[i].apellido2, datosComprador[i].direccion, nif);
+            } else {
+                alert("NIF incorrecto " + nif + ", no se ha podido crear el cliente");
+            }
+        }
+
+        //Imprimimos el array de objetos uno por uno en un loop
+        for (var i=0; i< compradores.length; i++) {
+            document.write(compradores[i] + "</br>");
+        }
+
+        // TODO: resolver o quitar: no funciona getNombre(). Comprobamos set y get
+        // Actualizamos nombre de uno de ellos
+        document.write(" <strong>Nombres de los clientes actualizados: </strong>"  + "</br>");
+        compradores[0].setNombre("Pedro");
+        //Imprimimos los nombres con getNombre para comprobar que el nombre ha cambiado.
+        for (var i=0; i< compradores.length; i++) {
+            //document.write(compradores[i].getNombre() + "</br>"); // Aqui por comprador[0] (actualizado, imprime el nombre inicial
+            document.write(compradores[i].nombre + "</br>");
+        }
+
+    </script>
+    </p>
+    <p>  <strong>Listado de categorias: </strong>
+    <script type="text/javascript">
+
+        // Valores del array
+        var arrayCategorias = ["Portatiles", "Procesadores", "Tarjetas gráficas"];
+        // Creamos el obejto categorias
+        categorias = new Categorias(arrayCategorias);
+        // Imprimimos el objeto categorias
+        document.write(categorias + "</br>");
+
+
+        // Añadimos una nueva categoria
+        newCat="Periféricos";
+        categorias.addCat(newCat);
+        // Imprimimos el objeto despues de añadir un elemento al array
+        document.write("</br> <strong>Nuevo listado de categorias (añadimos 'Perifericos'): </strong>");
+        document.write(categorias + "</br>");
+
+        // Eliminamos una categoria por posicion
+        posicion="0"
+        categorias.delCat(posicion);
+        // Imprimimos el objeto despues de añadir un elemento al array
+        document.write("</br> <strong>Nuevo listado de categorias (eliminamos 'Portátiles'): </strong>");
+        document.write(categorias + "</br>");
+
+
+    </script></p>
+    <p>  <strong>Listado de Items: </br></strong>
+    <script type="text/javascript">
+        
+        // Mi array de items
+        var datosItems=[
+            {"nombre":"Lenovo ideapad 310","descripcion":"AMD A12/GB/Radeon HD8670A/1TB/FullHD" ,"categoria":"Portátiles","precio":"500", "nuevo": "nuevo"},
+            {"nombre":"Asus R510VX-DM169D","descripcion":"Intel Core i5-6300HQ/8GB/1TB/GTX950M/15.6/FullHD" ,"categoria":"Portátiles","precio":"650", "nuevo": "nuevo"},
+            {"nombre":"Dell Vostro 5568","descripcion":"Intel Core i7/Ry4wd/256GB SSD/Intel HD620/8GB/FullHD" ,"categoria":"Portátiles","precio":"700", "nuevo": "nuevo"}
+        ];
+
+        // Creamos ahora un array de objetos iteraremos e iremos añadiendo objetos en un for loop
+        var items = new Array();
+
+        for (var i=0; i< datosItems.length; i++) {
+            // TODO Comprobamos que categoria sea alguna categoria
+
+            if (datosItems[i].nuevo == "nuevo") {
+                var nuevo = Boolean(true);
+            } else"{
+                var nuevo = Boolean(false);
+            } 
+
+            items[i] = new Item(datosItems[i].nombre, datosItems[i].descripcion, datosItems[i].categoria, datosItems[i].precio, nuevo);
+        }
+
+        //Imprimimos el array de objetos uno por uno en un loop
+        for (var i=0; i< items.length; i++) {
+            document.write(items[i] + "</br>");
+        }
+
+
+    </script></p>
+    </div>
+
+</body>
+</html>
