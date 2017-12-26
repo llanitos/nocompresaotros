@@ -58,7 +58,7 @@
     <script type="text/javascript">
 
         // Valores del array
-        var arrayCategorias = ["Portatiles", "Procesadores", "Tarjetas gráficas"];
+        var arrayCategorias = ["Portátiles", "Procesadores", "Tarjetas gráficas"];
         // Creamos el obejto categorias
         categorias = new Categorias(arrayCategorias);
         // Imprimimos el objeto categorias
@@ -73,10 +73,10 @@
         document.write(categorias + "</br>");
 
         // Eliminamos una categoria por posicion
-        posicion="0"
+        posicion="2"
         categorias.delCat(posicion);
         // Imprimimos el objeto despues de añadir un elemento al array
-        document.write("</br> <strong>Nuevo listado de categorias (eliminamos 'Portátiles'): </strong>");
+        document.write("</br> <strong>Nuevo listado de categorias (eliminamos 'Tarjetas gráficas'): </strong>");
         document.write(categorias + "</br>");
 
 
@@ -88,7 +88,7 @@
         var datosItems=[
             {"nombre":"Lenovo ideapad 310","descripcion":"AMD A12/GB/Radeon HD8670A/1TB/FullHD" ,"categoria":"Portátiles","precio":"500", "nuevo": "nuevo"},
             {"nombre":"Asus R510VX-DM169D","descripcion":"Intel Core i5-6300HQ/8GB/1TB/GTX950M/15.6/FullHD" ,"categoria":"Portátiles","precio":"650", "nuevo": "nuevo"},
-            {"nombre":"Dell Vostro 5568","descripcion":"Intel Core i7/Ry4wd/256GB SSD/Intel HD620/8GB/FullHD" ,"categoria":"Portátiles","precio":"700", "nuevo": "nuevo"}
+            {"nombre":"Dell Vostro 5568","descripcion":"Intel Core i7/Ry4wd/256GB SSD/Intel HD620/8GB/FullHD" ,"categoria":"Laptop","precio":"700", "nuevo": "segunda mano"}
         ];
 
         // Creamos ahora un array de objetos iteraremos e iremos añadiendo objetos en un for loop
@@ -103,7 +103,12 @@
                 var nuevo = Boolean(false);
             } 
 
-            items[i] = new Item(datosItems[i].nombre, datosItems[i].descripcion, datosItems[i].categoria, datosItems[i].precio, nuevo);
+            // Comprobamos que la categoria este en la clase categorias llamando a la funcion checkCat()
+            if (categorias.checkCat(datosItems[i].categoria) == true) {
+                items[i] = new Item(datosItems[i].nombre, datosItems[i].descripcion, datosItems[i].categoria, datosItems[i].precio, nuevo);
+            } else {
+                items[i] = new Item(datosItems[i].nombre, datosItems[i].descripcion, "Sin categoria", datosItems[i].precio, nuevo);
+            }
         }
 
         //Imprimimos el array de objetos uno por uno en un loop

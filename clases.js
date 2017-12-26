@@ -84,6 +84,18 @@ function Categorias(arrayListado) {
         return retorno;
     }
 
+    // Pasamos valor para comprobar si el valor esta contenido entre el listado de categorias
+    this.checkCat = function (cat) {
+        
+        for (var i=0; i< arrayListado.length; i++) {
+            if (this.cat == this.arrayListado[i]) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+
 }
 
 // Constructor Item
@@ -98,7 +110,7 @@ function Item(nombreItem, descripcion, categoria, precio, nuevo) {
    
 
     this.toString = function () {
-        var retorno = "Item: " + this.nombreItem + ", " + this.descripcion + ", " + this.categoria + ", " + this.precio + ", " + this.nuevo;
+        var retorno = "Item: " + this.getNombreItem() + ", " + this.getDescripcion() + ", " + this.getCategoria() + ", " + this.getPrecio() + ", " + this.getNuevo();
         return retorno;
     }
 
@@ -141,7 +153,13 @@ function Item(nombreItem, descripcion, categoria, precio, nuevo) {
     }
 
     this.getNuevo = function () {
-        return nuevo;
+        var valor;
+        if (this.nuevo == true) {
+            valor = "Nuevo a estrenar";
+        } else {
+            valor = "Segunda mano";
+        }
+        return valor;
     }
 
 
