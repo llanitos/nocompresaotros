@@ -49,7 +49,6 @@
         //Imprimimos los nombres con getNombre para comprobar que el nombre ha cambiado.
         for (var i=0; i< compradores.length; i++) {
             document.write(compradores[i].getNombre() + "</br>"); // Aqui por comprador[0] actualizado, imprime el nombre inicial
-            document.write(compradores[i].nombre + "</br>");
         }
 
     </script>
@@ -58,7 +57,7 @@
     <script type="text/javascript">
 
         // Valores del array
-        var arrayCategorias = ["Portátiles", "Procesadores", "Tarjetas gráficas"];
+        var arrayCategorias = ["Portatiles", "Procesadores", "Tarjetas gráficas"];
         // Creamos el obejto categorias
         categorias = new Categorias(arrayCategorias);
         // Imprimimos el objeto categorias
@@ -86,8 +85,8 @@
         
         // Mi array de items
         var datosItems=[
-            {"nombre":"Lenovo ideapad 310","descripcion":"AMD A12/GB/Radeon HD8670A/1TB/FullHD" ,"categoria":"Portátiles","precio":"500", "nuevo": "nuevo"},
-            {"nombre":"Asus R510VX-DM169D","descripcion":"Intel Core i5-6300HQ/8GB/1TB/GTX950M/15.6/FullHD" ,"categoria":"Portátiles","precio":"650", "nuevo": "nuevo"},
+            {"nombre":"Lenovo ideapad 310","descripcion":"AMD A12/GB/Radeon HD8670A/1TB/FullHD" ,"categoria":"Portatiles","precio":"500", "nuevo": "nuevo"},
+            {"nombre":"Asus R510VX-DM169D","descripcion":"Intel Core i5-6300HQ/8GB/1TB/GTX950M/15.6/FullHD" ,"categoria":"Portatiles","precio":"650", "nuevo": "nuevo"},
             {"nombre":"Dell Vostro 5568","descripcion":"Intel Core i7/Ry4wd/256GB SSD/Intel HD620/8GB/FullHD" ,"categoria":"Laptop","precio":"700", "nuevo": "segunda mano"}
         ];
 
@@ -95,7 +94,6 @@
         var items = new Array();
 
         for (var i=0; i< datosItems.length; i++) {
-            // TODO Comprobamos que categoria sea alguna categoria
 
             if (datosItems[i].nuevo == "nuevo") {
                 var nuevo = Boolean(true);

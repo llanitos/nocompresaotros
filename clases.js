@@ -38,23 +38,23 @@ function Comprador(nombre, apellido1, apellido2, direccion, nif) {
 
     // Getters
     this.getNombre = function () {
-        return nombre;
+        return this.nombre;
     }
 
     this.getApellido1 = function () {
-        return apellido1;
+        return this.apellido1;
     }
 
     this.getApellido2 = function () {
-        return apellido2;
+        return this.apellido2;
     }
 
     this.getDireccion = function () {
-        return direccion;
+        return this.direccion;
     }
 
     this.getNif = function () {
-        return nif;
+        return this.nif;
     }
 
 
@@ -87,13 +87,13 @@ function Categorias(arrayListado) {
     // Pasamos valor para comprobar si el valor esta contenido entre el listado de categorias
     this.checkCat = function (cat) {
         
+        var valor = Boolean(false);
         for (var i=0; i< arrayListado.length; i++) {
-            if (this.cat == this.arrayListado[i]) {
-                return true;
-            } else {
-                return false;
+            if (cat == this.arrayListado[i]) {
+                valor = true;
             }
         }
+        return valor;
     }
 
 }
@@ -137,19 +137,19 @@ function Item(nombreItem, descripcion, categoria, precio, nuevo) {
 
     // Getters
     this.getNombreItem = function () {
-        return nombreItem;
+        return this.nombreItem;
     }
 
     this.getDescripcion = function () {
-        return descripcion;
+        return this.descripcion;
     }
 
     this.getCategoria = function () {
-        return categoria;
+        return this.categoria;
     }
 
     this.getPrecio = function () {
-        return precio;
+        return this.precio;
     }
 
     this.getNuevo = function () {
