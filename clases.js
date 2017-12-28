@@ -164,24 +164,18 @@ function Item(nombreItem, descripcion, categoria, precio, nuevo) {
 
 }
 
-// Clase Carro
-function Carro(cliente, item) {
+// Clase Carro, un cliente
+function Carro(cliente) {
 
     // Parámetros
     this.cliente = cliente;
-    this.item = item;
 
     // Declaramos un array para ir añadiendo los items que se vayan pasando, añadimos primero item que es con el que iniciamos el carro
     var itemsCarro = new Array();
-    itemsCarro.push(item); 
 
     // Setters
     this.setCliente = function (cliente) {
         this.cliente = cliente;
-    }
-
-    this.setItem = function (item) {
-        this.item = item;
     }
 
     // Getters
@@ -189,16 +183,12 @@ function Carro(cliente, item) {
         return this.cliente;
     }
 
-    this.getItem = function () {
-        return this.item;
-    }
-
     // Añadir item
     this.addItem = function (itemPasado) {
         itemsCarro.push(itemPasado); 
     }
 
-    // Remover item
+    // Eliminar item
     this.removeItem = function (itemPasado) {
         for (var i=0; i< itemsCarro.length; i++) {
             if (itemsCarro[i] == itemPasado) {
