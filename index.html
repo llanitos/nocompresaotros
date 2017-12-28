@@ -19,7 +19,7 @@
     <script type="text/javascript">
         //Definimos un array con datos de los compradores
         var datosComprador=[
-            {"nombre":"Antonio","apellido1":"Garcia" ,"apellido2":"Perez","direccion":"C/Antonio Perez,2", "nif": "46938399E"},
+            {"nombre":"Antonio","apellido1":"Garcia" ,"apellido2":"Perez","direccion":"C/Lavapies,2", "nif": "46938399E"},
             {"nombre":"Manuela","apellido1":"Torbellino" ,"apellido2":"Tornavega","direccion":"C/Manuela Malasaña,2", "nif": "46938399E"},
             {"nombre":"Rosa Maria","apellido1":"Sarda" ,"apellido2":"Sarda","direccion":"C/La luna,2", "nif": "46938399E"}
         ];
@@ -56,7 +56,7 @@
     <script type="text/javascript">
 
         // Valores del array
-        var arrayCategorias = ["Portatiles", "Procesadores", "Tarjetas gráficas"];
+        var arrayCategorias = ["Portatiles", "Procesadores", "Tarjetas gráficas", "Telefonos"];
         // Creamos el obejto categorias
         categorias = new Categorias(arrayCategorias);
         // Imprimimos el objeto categorias
@@ -86,7 +86,12 @@
         var datosItems=[
             {"nombre":"Lenovo ideapad 310","descripcion":"AMD A12/GB/Radeon HD8670A/1TB/FullHD" ,"categoria":"Portatiles","precio":"500", "nuevo": "nuevo"},
             {"nombre":"Asus R510VX-DM169D","descripcion":"Intel Core i5-6300HQ/8GB/1TB/GTX950M/15.6/FullHD" ,"categoria":"Portatiles","precio":"650", "nuevo": "nuevo"},
-            {"nombre":"Dell Vostro 5568","descripcion":"Intel Core i7/Ry4wd/256GB SSD/Intel HD620/8GB/FullHD" ,"categoria":"Laptop","precio":"700", "nuevo": "segunda mano"}
+            {"nombre":"Dell Vostro 5568","descripcion":"Intel Core i7/Ry4wd/256GB SSD/Intel HD620/8GB/FullHD" ,"categoria":"Laptop","precio":"700", "nuevo": "segunda mano"},
+            {"nombre":"Xiaomi Redmi","descripcion":"Xiaomi Redmi Note 4X 32GB" ,"categoria":"Telefonos","precio":"150", "nuevo": "nuevo"},
+            {"nombre":"LeTV Le1 X600","descripcion":"Le1 X600 2.2Ghz 3GB 32GB" ,"categoria":"Telefonos","precio":"200", "nuevo": "nuevo"},
+            {"nombre":"AMD","descripcion":"A12" ,"categoria":"Procesadores","precio":"200", "nuevo": "segunda mano"},
+            {"nombre":"Intel","descripcion":"i5" ,"categoria":"Procesadores","precio":"150", "nuevo": "segunda mano"},
+            {"nombre":"Dell Vostro","descripcion":"Intel Core i7/Ry4wd/256GB SSD/Intel HD620/8GB/FullHD" ,"categoria":"Laptop","precio":"700", "nuevo": "segunda mano"} // laptop no esta en categorias y se imprimira como sin categoria
         ];
 
         // Creamos ahora un array de objetos iteraremos e iremos añadiendo objetos en un for loop

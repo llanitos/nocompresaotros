@@ -175,12 +175,30 @@ function Carro(cliente, item) {
     var itemsCarro = new Array();
     itemsCarro.push(item); 
 
-    // añadir item
+    // Setters
+    this.setCliente = function (cliente) {
+        this.cliente = cliente;
+    }
+
+    this.setItem = function (item) {
+        this.item = item;
+    }
+
+    // Getters
+    this.getCliente = function () {
+        return this.cliente;
+    }
+
+    this.getItem = function () {
+        return this.item;
+    }
+
+    // Añadir item
     this.addItem = function (itemPasado) {
         itemsCarro.push(itemPasado); 
     }
 
-    // remover item
+    // Remover item
     this.removeItem = function (itemPasado) {
         for (var i=0; i< itemsCarro.length; i++) {
             if (itemsCarro[i] == itemPasado) {
