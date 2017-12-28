@@ -17,6 +17,7 @@
     <p> <strong>Listado de clientes: </strong> </br>
 
     <script type="text/javascript">
+
         //Definimos un array con datos de los compradores
         var datosComprador=[
             {"nombre":"Antonio","apellido1":"Garcia" ,"apellido2":"Perez","direccion":"C/Meson de Paredes,2", "nif": "46938399E"},
@@ -24,10 +25,10 @@
             {"nombre":"Rosa Maria","apellido1":"Sarda" ,"apellido2":"Sarda","direccion":"C/La luna,2", "nif": "46938399E"}
         ];
 
-        // Creamos ahora un array de objetos iteraremos e iremos añadiendo objetos en un for loop
+        // Creamos ahora un array para los objetos comprador iteraremos e iremos añadiendo objetos en un for loop
         var compradores = new Array();
 
-        // For loop para validar el dni y si esta bien creamos el objeto y lo metemos en el array compradores
+        // For loop para validar el dni y si esta bien creamos el objeto y lo metemos en el array compradores, si esta mal alerta y no crea el objeto cliente
         for (var i=0; i< datosComprador.length; i++) {
             var nif = datosComprador[i].nif;
             if (validarDNI(nif) == true) {
@@ -45,9 +46,9 @@
         // Actualizamos nombre de uno de ellos
         document.write(" <strong>Nombres de los clientes actualizados: </strong>"  + "</br>");
         compradores[0].setNombre("Pedro");
-        //Imprimimos los nombres con getNombre para comprobar que el nombre ha cambiado.
+        //Imprimimos los nombres con getNombre para comprobar que el nombre ha actualizado.
         for (var i=0; i< compradores.length; i++) {
-            document.write(compradores[i].getNombre() + "</br>"); // Aqui por comprador[0] actualizado, imprime el nombre inicial
+            document.write(compradores[i].getNombre() + "</br>"); 
         }
 
     </script>
@@ -55,9 +56,9 @@
     <p>  <strong>Listado de categorias: </strong>
     <script type="text/javascript">
 
-        // Valores del array
+        // Valores del array categorias
         var arrayCategorias = ["Portátiles", "Procesadores", "Tarjetas gráficas", "Teléfonos"];
-        // Creamos el obejto categorias
+        // Creamos el obejto categorias pasandole el array
         categorias = new Categorias(arrayCategorias);
         // Imprimimos el objeto categorias
         document.write(categorias + "</br>");
@@ -94,26 +95,27 @@
             {"nombre":"Dell Vostro","descripcion":"Intel Core i7/Ry4wd/256GB SSD/Intel HD620/8GB/FullHD" ,"categoria":"Laptop","precio":"700", "nuevo": "segunda mano"} // laptop no esta en categorias y se imprimira como sin categoria
         ];
 
-        // Creamos ahora un array de objetos iteraremos e iremos añadiendo objetos en un for loop
+        // Creamos ahora un array de objetos items iteraremos e iremos añadiendo objetos en un for loop
         var items = new Array();
 
         for (var i=0; i< datosItems.length; i++) {
 
+            // Según sea el valor de nuevo creara un boleano con valor true o false
             if (datosItems[i].nuevo == "nuevo") {
                 var nuevo = Boolean(true);
             } else {
                 var nuevo = Boolean(false);
             } 
 
-            // Comprobamos que la categoria este en la clase categorias llamando a la funcion checkCat()
+            // Comprobamos que la categoria este en la clase categorias llamando a la funcion checkCat(). Si es una de nuestras categorias creamos el objeto con esa categoria
             if (categorias.checkCat(datosItems[i].categoria) == true) {
                 items[i] = new Item(datosItems[i].nombre, datosItems[i].descripcion, datosItems[i].categoria, datosItems[i].precio, nuevo);
-            } else {
+            } else { // Sino esta entoces usaremos "Sin categoria" para valor de categoria
                 items[i] = new Item(datosItems[i].nombre, datosItems[i].descripcion, "Sin categoria", datosItems[i].precio, nuevo);
             }
         }
 
-        //Imprimimos el array de objetos uno por uno en un loop
+        //Imprimimos el array de objetos items uno por uno en un loop
         for (var i=0; i< items.length; i++) {
             document.write(items[i]);
         }
@@ -123,7 +125,7 @@
     <p>  <strong>Carro de la compra: </br></strong>
     <script type="text/javascript">
 
-        // Llamamos al constructor del carro, añdimos un item y lo imprimimos todo
+        // Llamamos al constructor del carro, añadimos un item y lo imprimimos todo
         miCarro = new Carro(compradores[0]);
         miCarro.addItem(items[0]);
         document.write(miCarro);

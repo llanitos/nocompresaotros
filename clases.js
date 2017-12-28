@@ -1,14 +1,14 @@
-// Constructos¡r Comprador. Pasamos los datos del comprador construye objeto y lo pasa a toString
+// Clase comprador
 function Comprador(nombre, apellido1, apellido2, direccion, nif) {
 
-    // Paramaetros
+    // Parametros
 	this.nombre = nombre;
 	this.apellido1 = apellido1;
 	this.apellido2 = apellido2;
 	this.direccion = direccion;
 	this.nif = nif;
    
-
+    // toString
 	this.toString = function () {
   		//var retorno = "Comprador: " + this.getNombre() + ", " + this.getApellido1() + " " + this.getApellido2() + ", " + this.getDireccion() + ", " + this.getNif();
         var retorno = "Comprador: " + this.nombre + ", " + this.apellido1 + " " + this.apellido2 + ", " + this.direccion + ", " + this.nif;
@@ -61,7 +61,8 @@ function Comprador(nombre, apellido1, apellido2, direccion, nif) {
 }
 
 
-// Constructor Categorias. Se le pasa el array con los datos, añade elimina y 
+// Constructor Categorias. Se le pasa el array con los datos, añade y elimina al array. 
+// Hay una funcion extra que es checkCat que es para asegurarnos de que una categoria pasada este en el array
 function Categorias(arrayListado) {
 
     this.arrayListado=arrayListado;
@@ -152,6 +153,7 @@ function Item(nombreItem, descripcion, categoria, precio, nuevo) {
         return this.precio;
     }
 
+    // Según el valor de nuevo retornará si es nuevo o de segunda mano
     this.getNuevo = function () {
         var valor;
         if (this.nuevo == true) {
@@ -209,7 +211,7 @@ function Carro(cliente) {
     //Calcular el precio final
     this.getPrecioFinal = function () {
 
-        var precioFinal=Number(1);
+        var precioFinal=Number(1); // Empezamos por 1 asi añadimos el euro de envio al precio total
         for (var i=0; i< itemsCarro.length; i++) {
             precioFinal = precioFinal + Number(itemsCarro[i].getPrecio());
         }
