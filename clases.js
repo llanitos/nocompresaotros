@@ -110,7 +110,7 @@ function Item(nombreItem, descripcion, categoria, precio, nuevo) {
    
 
     this.toString = function () {
-        var retorno = "Item: " + this.getNombreItem() + ", " + this.getDescripcion() + ", " + this.getCategoria() + ", " + this.getPrecio() + ", " + this.getNuevo();
+        var retorno = "Item: " + this.getNombreItem() + ", " + this.getDescripcion() + ", " + this.getCategoria() + ", " + this.getPrecio() + ", " + this.getNuevo() + "</br>";
         return retorno;
     }
 
@@ -160,6 +160,52 @@ function Item(nombreItem, descripcion, categoria, precio, nuevo) {
             valor = "Segunda mano";
         }
         return valor;
+    }
+
+}
+
+// Clase Carro
+function Carro(cliente, item) {
+
+    // Parámetros
+    this.cliente = cliente;
+    this.item = item;
+
+    // Declaramos un array para ir añadiendo los items que se vayan pasando, añadimos primero item que es con el que iniciamos el carro
+    var itemsCarro = new Array();
+    itemsCarro.push(item); 
+
+    // añadir item
+    this.addItem = function (itemPasado) {
+        itemsCarro.push(itemPasado); 
+    }
+
+    // remover item
+    this.removeItem = function (itemPasado) {
+        for (var i=0; i< itemsCarro.length; i++) {
+            if (itemsCarro[i] == itemPasado) {
+                itemsCarro.splice(i, 1);
+            }
+        }
+    }
+
+    // toString
+    this.toString = function () {
+        var retorno = "Carro: " + this.cliente + "</br>";
+        for (var i=0; i< itemsCarro.length; i++) {
+            retorno = retorno + itemsCarro[i];
+        }
+        return retorno;
+    }
+
+    //Calcular el precio final
+    this.getPrecioFinal = function () {
+
+        var precioFinal=Number(1);
+        for (var i=0; i< itemsCarro.length; i++) {
+            precioFinal = precioFinal + Number(itemsCarro[i].getPrecio());
+        }
+        return precioFinal;
     }
 
 

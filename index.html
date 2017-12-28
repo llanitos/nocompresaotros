@@ -42,7 +42,6 @@
             document.write(compradores[i] + "</br>");
         }
 
-        // TODO: resolver o quitar: no funciona getNombre(). Comprobamos set y get
         // Actualizamos nombre de uno de ellos
         document.write(" <strong>Nombres de los clientes actualizados: </strong>"  + "</br>");
         compradores[0].setNombre("Pedro");
@@ -111,9 +110,30 @@
 
         //Imprimimos el array de objetos uno por uno en un loop
         for (var i=0; i< items.length; i++) {
-            document.write(items[i] + "</br>");
+            document.write(items[i]);
         }
 
+
+    </script></p>
+    <p>  <strong>Carro de la compra: </br></strong>
+    <script type="text/javascript">
+
+        // Llamamos al constructor del carro y lo imprimimos
+        miCarro = new Carro(compradores[0], items[0]);
+        document.write(miCarro);
+
+        // Calculamos el precio final
+        document.write("Total compra: " + miCarro.getPrecioFinal());
+
+        // Añadimos otro item al carro
+        miCarro.addItem(items[1]);
+        document.write("</br></br><strong>Añadimos un nuevo item al carro: </strong></br>" + miCarro);
+        document.write("Total compra: " + miCarro.getPrecioFinal());
+
+        //Eliminamos un item
+        miCarro.removeItem(items[0]);
+        document.write("</br></br><strong>Eliminamos un item del carro: </strong></br>" + miCarro);
+        document.write("Total compra: " + miCarro.getPrecioFinal());
 
     </script></p>
     </div>
